@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Dhanurved R — Builder & Developer</title>
+<meta name="description" content="Dhanurved R — Full-Stack Dev, CyberSec Hacker, Hardware Enthusiast."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+<style>
+:root{
+  --bg:#0d0e0d;
+  --bg2:#111311;
+  --bg3:#161816;
+  --surface:rgba(255,255,255,0.035);
+  --surfaceH:rgba(0,255,120,0.055);
+  --border:rgba(255,255,255,0.07);
+  --borderH:rgba(0,255,120,0.25);
+  --accent:#00ff88;
+  --text:#deeadf;
+  --textMd:#8da98e;
+  --textDim:#5a705b;
+  --mono:'JetBrains Mono',monospace;
+  --sans:'Outfit',sans-serif;
+  --rLg:16px;
+  --r:10px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:var(--sans);font-size:16px;
+  line-height:1.65;overflow-x:hidden;
+}
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:
+    linear-gradient(rgba(0,255,136,.022) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,255,136,.022) 1px,transparent 1px);
+  background-size:60px 60px;pointer-events:none;z-index:0;
+}
+body::after{
+  content:'';position:fixed;top:-220px;right:-220px;
+  width:650px;height:650px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,255,136,.065) 0%,transparent 65%);
+  pointer-events:none;z-index:0;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2.5rem;height:62px;
+  background:rgba(13,14,13,.88);
+  backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{font-family:var(--mono);font-size:.95rem;font-weight:700;color:var(--accent);text-decoration:none;letter-spacing:.06em;}
+.nav-logo em{color:var(--textDim);font-style:normal;}
+#nav-links{display:flex;gap:.2rem;list-style:none;}
+#nav-links a{
+  display:flex;flex-direction:column;align-items:center;gap:3px;
+  padding:7px 17px;font-family:var(--mono);font-size:.58rem;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--textMd);text-decoration:none;border-radius:8px;
+  transition:color .2s,background .2s;
+}
+#nav-links a i{font-size:.9rem;}
+#nav-links a:hover,#nav-links a.active{color:var(--accent);background:rgba(0,255,136,.07);}
+
+/* ── SECTIONS ── */
+section{
+  position:relative;z-index:1;max-width:1080px;margin:0 auto;
+  padding:5.5rem 2.5rem 5rem;min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.sec-label{font-family:var(--mono);font-size:.67rem;color:var(--accent);letter-spacing:.22em;text-transform:uppercase;margin-bottom:.5rem;}
+.sec-title{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800;line-height:1.05;letter-spacing:-.02em;margin-bottom:3rem;}
+
+/* ── HERO ── */
+#home{padding-top:10rem;}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--mono);font-size:.7rem;color:var(--textMd);
+  border:1px solid var(--border);border-radius:100px;
+  padding:6px 16px;margin-bottom:2rem;width:fit-content;
+}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pa 2s ease infinite;}
+@keyframes pa{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,255,136,.4);}50%{opacity:.5;box-shadow:0 0 0 6px rgba(0,255,136,0);}}
+.hero-name{font-size:clamp(3.8rem,11vw,7.8rem);font-weight:900;line-height:.9;letter-spacing:-.04em;margin-bottom:1.6rem;}
+.hero-name .acc{color:var(--accent);}
+.hero-sub{font-family:var(--mono);font-size:clamp(.82rem,2vw,.98rem);color:var(--textMd);margin-bottom:2.8rem;min-height:1.5em;}
+.cursor{display:inline-block;width:2px;height:1em;background:var(--accent);vertical-align:middle;margin-left:2px;animation:blink .72s step-end infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:4rem;}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:11px 24px;border-radius:9px;font-family:var(--mono);font-size:.77rem;font-weight:600;letter-spacing:.05em;text-decoration:none;cursor:pointer;border:none;transition:all .2s;}
+.btn-p{background:var(--accent);color:#080d08;}
+.btn-p:hover{background:#1fffaa;transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,255,136,.3);}
+.btn-g{background:transparent;color:var(--text);border:1px solid var(--border);}
+.btn-g:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+.hero-stats{display:flex;gap:3rem;flex-wrap:wrap;padding-top:2.5rem;border-top:1px solid var(--border);}
+.stat-n{font-family:var(--mono);font-size:2.3rem;font-weight:700;color:var(--accent);display:block;line-height:1;}
+.stat-l{font-family:var(--mono);font-size:.62rem;color:var(--textDim);letter-spacing:.12em;text-transform:uppercase;margin-top:5px;display:block;}
+
+/* ── CARD ── */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rLg);padding:1.4rem 1.6rem;transition:border-color .25s,background .25s,transform .25s;}
+.card:hover{border-color:var(--borderH);background:var(--surfaceH);transform:translateY(-3px);}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;}
+.about-bio{grid-column:1/-1;font-size:1.03rem;line-height:1.9;color:var(--textMd);}
+.about-bio strong{color:var(--text);font-weight:600;}
+.info-label{font-family:var(--mono);font-size:.6rem;color:var(--accent);letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px;display:block;}
+.info-val{font-size:.88rem;color:var(--textMd);}
+
+/* ── PROJECTS ── */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(295px,1fr));gap:1.1rem;}
+.proj-tag{font-family:var(--mono);font-size:.58rem;color:var(--accent);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.7rem;display:block;}
+.proj-name{font-size:1.08rem;font-weight:700;margin-bottom:.55rem;}
+.proj-desc{font-size:.84rem;color:var(--textMd);line-height:1.65;flex:1;}
+.proj-card{display:flex;flex-direction:column;}
+.proj-link{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:.7rem;color:var(--accent);text-decoration:none;margin-top:.9rem;transition:gap .18s;}
+.proj-link:hover{gap:12px;}
+
+/* ── SKILLS ── */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:1.1rem;}
+.skill-cat{font-family:var(--mono);font-size:.6rem;color:var(--accent);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.9rem;}
+.skill-tags{display:flex;flex-wrap:wrap;gap:7px;}
+.skill-tag{font-family:var(--mono);font-size:.7rem;padding:5px 12px;border-radius:6px;background:rgba(0,255,136,.05);border:1px solid rgba(0,255,136,.13);color:var(--textMd);transition:border-color .18s,color .18s;}
+.skill-tag:hover{border-color:var(--accent);color:var(--accent);}
+
+/* ── CONTACT ── */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:1.1rem;}
+.contact-card{display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;}
+.c-icon{width:48px;height:48px;flex-shrink:0;border-radius:12px;background:rgba(0,255,136,.07);border:1px solid rgba(0,255,136,.14);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:1.1rem;transition:background .2s,transform .2s;}
+.contact-card:hover .c-icon{background:rgba(0,255,136,.18);transform:scale(1.06);}
+.c-plat{font-family:var(--mono);font-size:.58rem;color:var(--textDim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px;}
+.c-val{font-size:.88rem;color:var(--text);}
+
+/* ── FOOTER ── */
+footer{position:relative;z-index:1;border-top:1px solid var(--border);max-width:1080px;margin:0 auto;padding:1.8rem 2.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.f-copy{font-family:var(--mono);font-size:.7rem;color:var(--textDim);}
+.f-copy span{color:var(--accent);}
+#footer-links{display:flex;gap:1.5rem;}
+#footer-links a{font-family:var(--mono);font-size:.7rem;color:var(--textDim);text-decoration:none;transition:color .2s;}
+#footer-links a:hover{color:var(--accent);}
+
+/* ── LOADER ── */
+.loader{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.77rem;color:var(--textDim);padding:2.5rem 0;}
+.spin{width:15px;height:15px;border-radius:50%;border:2px solid var(--border);border-top-color:var(--accent);animation:sp .75s linear infinite;}
+@keyframes sp{to{transform:rotate(360deg);}}
+
+/* ── ANIMATIONS ── */
+@keyframes fu{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+.fu{animation:fu .65s ease forwards;}
+.d1{animation-delay:.08s;opacity:0;}
+.d2{animation-delay:.18s;opacity:0;}
+.d3{animation-delay:.28s;opacity:0;}
+.d4{animation-delay:.38s;opacity:0;}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--bg3);border-radius:4px;}
+::-webkit-scrollbar-thumb:hover{background:var(--textDim);}
+
+@media(max-width:768px){
+  nav{padding:0 1.2rem;}
+  #nav-links a span{display:none;}
+  #nav-links a{padding:7px 12px;}
+  section{padding:5rem 1.4rem 3.5rem;}
+  .about-grid{grid-template-columns:1fr;}
+  .hero-stats{gap:1.8rem;}
+  footer{padding:1.5rem 1.4rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">DR<em>_</em></a>
+  <ul id="nav-links">
+    <li><a href="#home" class="active"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+    <li><a href="#about"><i class="fa-solid fa-user"></i><span>About</span></a></li>
+    <li><a href="#projects"><i class="fa-solid fa-code"></i><span>Projects</span></a></li>
+    <li><a href="#skills"><i class="fa-solid fa-terminal"></i><span>Skills</span></a></li>
+    <li><a href="#contact"><i class="fa-solid fa-envelope"></i><span>Contact</span></a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-badge fu d1"><span class="pulse"></span>Open to Collabs &amp; CTFs</div>
+  <h1 class="hero-name fu d2">Dhanurved<br/><span class="acc">R.</span></h1>
+  <p class="hero-sub fu d2">&gt;&nbsp;<span id="typed"></span><span class="cursor"></span></p>
+  <div class="hero-cta fu d3">
+    <a href="#projects" class="btn btn-p"><i class="fa-solid fa-code"></i>View Projects</a>
+    <a href="#contact" class="btn btn-g"><i class="fa-solid fa-paper-plane"></i>Get in Touch</a>
+  </div>
+  <div class="hero-stats fu d4">
+    <div><span class="stat-n">50+</span><span class="stat-l">Projects Built</span></div>
+    <div><span class="stat-n">5+</span><span class="stat-l">Years Coding</span></div>
+    <div><span class="stat-n">CTF</span><span class="stat-l">Player</span></div>
+    <div><span class="stat-n">∞</span><span class="stat-l">Ideas in Queue</span></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="sec-label">// about.me</p>
+  <h2 class="sec-title">Who I Am</h2>
+  <div class="about-grid">
+    <div class="card about-bio">
+      I'm <strong>Dhanurved R</strong> — a full-stack developer, cybersecurity enthusiast, and
+      hardware hacker. I live at the intersection of <strong>software and silicon</strong>, building
+      everything from Python automation scripts to Arduino &amp; Raspberry Pi systems, web apps
+      to CTF exploits. Backend, frontend, embedded — I do it all.
+      <br/><br/>
+      If it computes, I'll build it. If it can be broken, I'll learn how.
+    </div>
+    <div class="card">
+      <span class="info-label">Based in</span>
+      <span class="info-val">Karnataka, India</span>
+    </div>
+    <div class="card">
+      <span class="info-label">Focus</span>
+      <span class="info-val">Full-Stack &amp; Cybersecurity</span>
+    </div>
+    <div class="card">
+      <span class="info-label">Currently building</span>
+      <span class="info-val">Web apps, CTF tools, IoT systems</span>
+    </div>
+    <div class="card">
+      <span class="info-label">Philosophy</span>
+      <span class="info-val">If it can be hacked, it can be built.</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="sec-label">// projects.list</p>
+  <h2 class="sec-title">Things I've Built</h2>
+  <div class="projects-grid" id="projects-grid">
+    <div class="loader"><div class="spin"></div>Loading…</div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="sec-label">// skills.map</p>
+  <h2 class="sec-title">What I Know</h2>
+  <div class="skills-grid" id="skills-container">
+    <div class="loader"><div class="spin"></div>Loading…</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="sec-label">// contact.reach</p>
+  <h2 class="sec-title">Get In Touch</h2>
+  <div class="contact-grid" id="contact-grid">
+    <div class="loader"><div class="spin"></div>Loading…</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="f-copy">Built by <span>Dhanurved R</span> &copy; 2025</span>
+  <div id="footer-links"></div>
+</footer>
+
+<script>
+// ╔══════════════════════════════════════════════════════╗
+// ║  ONE thing to configure — your Worker URL           ║
+// ║  Everything else (Sheets, geo, logging) is          ║
+// ║  handled server-side in the Worker.                 ║
+// ╚══════════════════════════════════════════════════════╝
+const WORKER_URL = 'dhanurved-site.dhanurvedr.workers.dev';
+// e.g. 'https://dhanurved-site.yourname.workers.dev'
+
+// ── Typed effect ──────────────────────────────────────
+const PHRASES = [
+  'Full-Stack Developer',
+  'Cybersecurity Enthusiast',
+  'Python & Bash Scripter',
+  'Arduino + Raspberry Pi Hacker',
+  'Backend Engineer',
+  'CTF Player',
+  'Builder & Developer',
+];
+let pi=0,ci=0,del=false;
+const tel=document.getElementById('typed');
+function tick(){
+  const ph=PHRASES[pi];
+  if(!del){tel.textContent=ph.slice(0,++ci);if(ci===ph.length){del=true;setTimeout(tick,2100);return;}}
+  else{tel.textContent=ph.slice(0,--ci);if(ci===0){del=false;pi=(pi+1)%PHRASES.length;}}
+  setTimeout(tick,del?42:72);
+}
+tick();
+
+// ── Scrollspy ─────────────────────────────────────────
+const navAs=document.querySelectorAll('#nav-links a');
+document.querySelectorAll('section[id]').forEach(s=>{
+  new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        navAs.forEach(a=>a.classList.remove('active'));
+        const m=document.querySelector(`#nav-links a[href="#${e.target.id}"]`);
+        if(m)m.classList.add('active');
+      }
+    });
+  },{rootMargin:'-35% 0px -55% 0px'}).observe(s);
+});
+
+// ── Render helpers ────────────────────────────────────
+function renderNav(items){
+  if(!items?.length)return;
+  document.getElementById('nav-links').innerHTML=items.map((n,i)=>`
+    <li><a href="${n.href}"${i===0?' class="active"':''}>
+      <i class="${n.icon}"></i><span>${n.label}</span>
+    </a></li>`).join('');
+}
+
+function renderProjects(items){
+  const g=document.getElementById('projects-grid');
+  if(!items?.length){g.innerHTML='<p style="font-family:var(--mono);color:var(--textDim)">Add rows to the Projects sheet!</p>';return;}
+  g.innerHTML=items.map(p=>`
+    <div class="card proj-card">
+      <span class="proj-tag">${p.tag||'project'}</span>
+      <h3 class="proj-name">${p.name}</h3>
+      <p class="proj-desc">${p.description}</p>
+      ${p.link?`<a href="${p.link}" target="_blank" rel="noopener" class="proj-link">
+        Download / View &nbsp;<i class="fa-solid fa-arrow-right"></i></a>`:''}
+    </div>`).join('');
+}
+
+function renderSkills(items){
+  const c=document.getElementById('skills-container');
+  if(!items?.length){c.innerHTML='<p style="font-family:var(--mono);color:var(--textDim)">Add rows to the Skills sheet!</p>';return;}
+  const cats={};
+  items.forEach(s=>{(cats[s.category]=cats[s.category]||[]).push(s.skill);});
+  c.innerHTML=Object.entries(cats).map(([cat,skills])=>`
+    <div class="card">
+      <p class="skill-cat">${cat}</p>
+      <div class="skill-tags">${skills.map(s=>`<span class="skill-tag">${s}</span>`).join('')}</div>
+    </div>`).join('');
+}
+
+function renderContact(items){
+  const g=document.getElementById('contact-grid');
+  if(!items?.length){g.innerHTML='<p style="font-family:var(--mono);color:var(--textDim)">Add rows to the Contact sheet!</p>';return;}
+  g.innerHTML=items.map(c=>`
+    <a href="${c.url}" target="_blank" rel="noopener" class="card contact-card">
+      <div class="c-icon"><i class="${c.icon}"></i></div>
+      <div><p class="c-plat">${c.platform}</p><p class="c-val">${c.display}</p></div>
+    </a>`).join('');
+}
+
+function renderFooter(items){
+  if(!items?.length)return;
+  document.getElementById('footer-links').innerHTML=
+    items.map(l=>`<a href="${l.url}" target="_blank" rel="noopener">${l.name}</a>`).join('');
+}
+
+// ── Boot — ONE fetch, Worker handles everything else ──
+async function init(){
+  if(WORKER_URL==='YOUR_CLOUDFLARE_WORKER_URL_HERE'){
+    console.warn('[DR] Set WORKER_URL in index.html');
+    return;
+  }
+  try{
+    // Single request: Worker reads Sheets + logs visitor in background
+    const d=await fetch(WORKER_URL).then(r=>r.json());
+    renderNav(d.navbar);
+    renderProjects(d.projects);
+    renderSkills(d.skills);
+    renderContact(d.contact);
+    renderFooter(d.footerLinks);
+  }catch(err){
+    console.warn('[DR] Worker fetch failed:',err);
+  }
+}
+
+init();
+</script>
+</body>
+</html>
